@@ -1,0 +1,624 @@
+Container image pulled!
+Job started
+Initializing job pod...
+Initializing job pod OK
+
+Copying features from processing blocks...
+Copying features from DSP block...
+Copying features from DSP block OK
+Copying features from processing blocks OK
+
+Scheduling job in cluster...
+Container image pulled!
+Job started
+Splitting data into training and validation sets...
+Splitting data into training and validation sets OK
+Scheduling job in cluster...
+Container image pulled!
+Job started
+Transforming Edge Impulse data format into something compatible with YOLOv5
+[  1/303] Converting images...
+[303/303] Converting images...
+Transforming Edge Impulse data format into something compatible with YOLOv5 OK
+
+train: weights=/app/yolov5n.pt, cfg=, data=/tmp/data/data.yaml, hyp=data/hyps/hyp.scratch-low.yaml, epochs=30, batch_size=16, imgsz=96, rect=False, resume=False, nosave=False, noval=False, noautoanchor=False, noplots=False, evolve=None, bucket=, cache=ram, image_weights=False, device=, multi_scale=False, single_cls=False, optimizer=SGD, sync_bn=False, workers=8, project=runs/train, name=yolov5_results, exist_ok=False, quad=False, cos_lr=False, label_smoothing=0.0, patience=100, freeze=[10], save_period=-1, seed=0, local_rank=-1, entity=None, upload_dataset=False, bbox_interval=-1, artifact_alias=latest
+github: skipping check (offline), for updates see https://github.com/ultralytics/yolov5
+/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:88: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+YOLOv5 🚀 v6.2-110-gc108a9d Python-3.8.10 torch-1.13.1+cu117 CPU
+
+hyperparameters: lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.5, cls_pw=1.0, obj=1.0, obj_pw=1.0, iou_t=0.2, anchor_t=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.0, copy_paste=0.0
+Overriding model.yaml nc=80 with nc=5
+
+                 from  n    params  module                                  arguments                     
+  0                -1  1      1760  models.common.Conv                      [3, 16, 6, 2, 2]              
+  1                -1  1      4672  models.common.Conv                      [16, 32, 3, 2]                
+  2                -1  1      4800  models.common.C3                        [32, 32, 1]                   
+  3                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]                
+  4                -1  2     29184  models.common.C3                        [64, 64, 2]                   
+  5                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]               
+  6                -1  3    156928  models.common.C3                        [128, 128, 3]                 
+  7                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]              
+  8                -1  1    296448  models.common.C3                        [256, 256, 1]                 
+  9                -1  1    164608  models.common.SPPF                      [256, 256, 5]                 
+ 10                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]              
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]                           
+ 13                -1  1     90880  models.common.C3                        [256, 128, 1, False]          
+ 14                -1  1      8320  models.common.Conv                      [128, 64, 1, 1]               
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]                           
+ 17                -1  1     22912  models.common.C3                        [128, 64, 1, False]           
+ 18                -1  1     36992  models.common.Conv                      [64, 64, 3, 2]                
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]                           
+ 20                -1  1     74496  models.common.C3                        [128, 128, 1, False]          
+ 21                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]              
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]                           
+ 23                -1  1    296448  models.common.C3                        [256, 256, 1, False]          
+ 24      [17, 20, 23]  1     13530  models.yolo.Detect                      [5, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [64, 128, 256]]
+Model summary: 270 layers, 1770682 parameters, 1770682 gradients, 4.2 GFLOPs
+
+Transferred 343/349 items from /app/yolov5n.pt
+freezing model.0.conv.weight
+freezing model.0.bn.weight
+freezing model.0.bn.bias
+freezing model.1.conv.weight
+freezing model.1.bn.weight
+freezing model.1.bn.bias
+freezing model.2.cv1.conv.weight
+freezing model.2.cv1.bn.weight
+freezing model.2.cv1.bn.bias
+freezing model.2.cv2.conv.weight
+freezing model.2.cv2.bn.weight
+freezing model.2.cv2.bn.bias
+freezing model.2.cv3.conv.weight
+freezing model.2.cv3.bn.weight
+freezing model.2.cv3.bn.bias
+freezing model.2.m.0.cv1.conv.weight
+freezing model.2.m.0.cv1.bn.weight
+freezing model.2.m.0.cv1.bn.bias
+freezing model.2.m.0.cv2.conv.weight
+freezing model.2.m.0.cv2.bn.weight
+freezing model.2.m.0.cv2.bn.bias
+freezing model.3.conv.weight
+freezing model.3.bn.weight
+freezing model.3.bn.bias
+freezing model.4.cv1.conv.weight
+freezing model.4.cv1.bn.weight
+freezing model.4.cv1.bn.bias
+freezing model.4.cv2.conv.weight
+freezing model.4.cv2.bn.weight
+freezing model.4.cv2.bn.bias
+freezing model.4.cv3.conv.weight
+freezing model.4.cv3.bn.weight
+freezing model.4.cv3.bn.bias
+freezing model.4.m.0.cv1.conv.weight
+freezing model.4.m.0.cv1.bn.weight
+freezing model.4.m.0.cv1.bn.bias
+freezing model.4.m.0.cv2.conv.weight
+freezing model.4.m.0.cv2.bn.weight
+freezing model.4.m.0.cv2.bn.bias
+freezing model.4.m.1.cv1.conv.weight
+freezing model.4.m.1.cv1.bn.weight
+freezing model.4.m.1.cv1.bn.bias
+freezing model.4.m.1.cv2.conv.weight
+freezing model.4.m.1.cv2.bn.weight
+freezing model.4.m.1.cv2.bn.bias
+freezing model.5.conv.weight
+freezing model.5.bn.weight
+freezing model.5.bn.bias
+freezing model.6.cv1.conv.weight
+freezing model.6.cv1.bn.weight
+freezing model.6.cv1.bn.bias
+freezing model.6.cv2.conv.weight
+freezing model.6.cv2.bn.weight
+freezing model.6.cv2.bn.bias
+freezing model.6.cv3.conv.weight
+freezing model.6.cv3.bn.weight
+freezing model.6.cv3.bn.bias
+freezing model.6.m.0.cv1.conv.weight
+freezing model.6.m.0.cv1.bn.weight
+freezing model.6.m.0.cv1.bn.bias
+freezing model.6.m.0.cv2.conv.weight
+freezing model.6.m.0.cv2.bn.weight
+freezing model.6.m.0.cv2.bn.bias
+freezing model.6.m.1.cv1.conv.weight
+freezing model.6.m.1.cv1.bn.weight
+freezing model.6.m.1.cv1.bn.bias
+freezing model.6.m.1.cv2.conv.weight
+freezing model.6.m.1.cv2.bn.weight
+freezing model.6.m.1.cv2.bn.bias
+freezing model.6.m.2.cv1.conv.weight
+freezing model.6.m.2.cv1.bn.weight
+freezing model.6.m.2.cv1.bn.bias
+freezing model.6.m.2.cv2.conv.weight
+freezing model.6.m.2.cv2.bn.weight
+freezing model.6.m.2.cv2.bn.bias
+freezing model.7.conv.weight
+freezing model.7.bn.weight
+freezing model.7.bn.bias
+freezing model.8.cv1.conv.weight
+freezing model.8.cv1.bn.weight
+freezing model.8.cv1.bn.bias
+freezing model.8.cv2.conv.weight
+freezing model.8.cv2.bn.weight
+freezing model.8.cv2.bn.bias
+freezing model.8.cv3.conv.weight
+freezing model.8.cv3.bn.weight
+freezing model.8.cv3.bn.bias
+freezing model.8.m.0.cv1.conv.weight
+freezing model.8.m.0.cv1.bn.weight
+freezing model.8.m.0.cv1.bn.bias
+freezing model.8.m.0.cv2.conv.weight
+freezing model.8.m.0.cv2.bn.weight
+freezing model.8.m.0.cv2.bn.bias
+freezing model.9.cv1.conv.weight
+freezing model.9.cv1.bn.weight
+freezing model.9.cv1.bn.bias
+freezing model.9.cv2.conv.weight
+freezing model.9.cv2.bn.weight
+freezing model.9.cv2.bn.bias
+optimizer: SGD(lr=0.01) with parameter groups 57 weight(decay=0.0), 60 weight(decay=0.0005), 60 bias
+albumentations: Blur(p=0.01, blur_limit=(3, 7)), MedianBlur(p=0.01, blur_limit=(3, 7)), ToGray(p=0.01), CLAHE(p=0.01, clip_limit=(1, 4.0), tile_grid_size=(8, 8))
+train: New cache created: /tmp/data/train/labels.cache
+train: Caching images (0.0GB ram): 100% 242/242 [00:00<00:00, 5482.60it/s]
+val: New cache created: /tmp/data/valid/labels.cache
+val: Caching images (0.0GB ram): 100% 61/61 [00:00<00:00, 5008.17it/s]
+
+AutoAnchor: 5.83 anchors/target, 1.000 Best Possible Recall (BPR). Current anchors are a good fit to dataset ✅
+Plotting labels to runs/train/yolov5_results/labels.jpg... 
+Image sizes 96 train, 96 val
+Using 8 dataloader workers
+Logging results to runs/train/yolov5_results
+Starting training for 30 epochs...
+Epoch: 0
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63   0.000924      0.282    0.00213   0.000366
+Epoch: 1
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63    0.00182       0.51     0.0132    0.00233
+Epoch: 2
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.105     0.0689     0.0547      0.029
+Epoch: 3
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63     0.0121      0.269     0.0155    0.00444
+Epoch: 4
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63     0.0618      0.275     0.0878       0.02
+Epoch: 5
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.214      0.395      0.208     0.0538
+Epoch: 6
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.111      0.472      0.132     0.0381
+Epoch: 7
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.376      0.452      0.363      0.101
+Epoch: 8
+WARNING: NMS time limit 1.260s exceeded
+WARNING: NMS time limit 1.170s exceeded
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.336      0.244      0.233     0.0948
+Epoch: 9
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.328      0.555      0.409      0.138
+Epoch: 10
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.333      0.586      0.415      0.194
+Epoch: 11
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.349      0.586      0.435      0.184
+Epoch: 12
+WARNING: NMS time limit 1.260s exceeded
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.548      0.531      0.502      0.191
+Epoch: 13
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.521      0.624      0.681      0.293
+Epoch: 14
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63       0.44      0.701      0.634      0.267
+Epoch: 15
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.507       0.68      0.726      0.289
+Epoch: 16
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.476      0.708      0.689      0.304
+Epoch: 17
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.583      0.712      0.772      0.369
+Epoch: 18
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.571      0.768      0.817      0.401
+Epoch: 19
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.631      0.764       0.84       0.38
+Epoch: 20
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.631      0.741      0.812      0.377
+Epoch: 21
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.655      0.764       0.82      0.404
+Epoch: 22
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63       0.74      0.789      0.871      0.446
+Epoch: 23
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.752      0.786      0.868      0.454
+Epoch: 24
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.798      0.792      0.891      0.467
+Epoch: 25
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.829      0.801      0.904      0.516
+Epoch: 26
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.825      0.833      0.914      0.481
+Epoch: 27
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.848      0.841      0.916      0.501
+Epoch: 28
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.863      0.826      0.918      0.519
+Epoch: 29
+Attached to job 17799927...
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.844      0.819      0.918      0.506
+
+30 epochs completed in 0.138 hours.
+Optimizer stripped from runs/train/yolov5_results/weights/last.pt, 3.7MB
+Optimizer stripped from runs/train/yolov5_results/weights/best.pt, 3.7MB
+
+Validating runs/train/yolov5_results/weights/best.pt...
+Fusing layers... 
+Model summary: 213 layers, 1765930 parameters, 0 gradients, 4.1 GFLOPs
+                 Class     Images  Instances          P          R     mAP@.5 mAP@.5:.95
+                   all         61         63      0.865      0.825      0.918      0.518
+                class0         61         11      0.708          1      0.995       0.58
+                class1         61         10       0.93        0.5      0.733      0.381
+                class2         61         18      0.935      0.804      0.958      0.547
+                class3         61         17      0.786      0.824      0.909      0.413
+                class4         61          7      0.967          1      0.995      0.669
+Results saved to runs/train/yolov5_results
+Training complete
+
+Converting to ONNX...
+export: data=data/coco128.yaml, weights=['./runs/train/yolov5_results/weights/last.pt'], imgsz=[96], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['onnx']
+YOLOv5 🚀 v6.2-110-gc108a9d Python-3.8.10 torch-1.13.1+cu117 CPU
+
+Fusing layers... 
+Model summary: 213 layers, 1765930 parameters, 0 gradients, 4.1 GFLOPs
+
+PyTorch: starting from runs/train/yolov5_results/weights/last.pt with output shape (1, 567, 10) (3.5 MB)
+/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:88: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+
+ONNX: starting export with onnx 1.12.0...
+ONNX: export success ✅ 1.2s, saved as runs/train/yolov5_results/weights/last.onnx (6.8 MB)
+
+Export complete (2.4s)
+Results saved to /app/yolov5/runs/train/yolov5_results/weights
+Detect:          python detect.py --weights runs/train/yolov5_results/weights/last.onnx 
+Validate:        python val.py --weights runs/train/yolov5_results/weights/last.onnx 
+PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'runs/train/yolov5_results/weights/last.onnx')
+Visualize:       https://netron.app
+Converting to ONNX OK
+
+Converting to TensorFlow Lite model (fp16)...
+export: data=data/coco128.yaml, weights=['./runs/train/yolov5_results/weights/last.pt'], imgsz=[96], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=True, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['saved_model', 'tflite']
+YOLOv5 🚀 v6.2-110-gc108a9d Python-3.8.10 torch-1.13.1+cu117 CPU
+
+Fusing layers... 
+Model summary: 213 layers, 1765930 parameters, 0 gradients, 4.1 GFLOPs
+
+PyTorch: starting from runs/train/yolov5_results/weights/last.pt with output shape (1, 567, 10) (3.5 MB)
+/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:88: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+
+TensorFlow SavedModel: starting export with tensorflow 2.7.0...
+
+                 from  n    params  module                                  arguments                     
+2024-04-03 16:10:26.907596: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: UNKNOWN ERROR (34)
+2024-04-03 16:10:26.907648: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (job-project-373968-17799946-6urw8-s6qwm): /proc/driver/nvidia/version does not exist
+2024-04-03 16:10:26.907892: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+  0                -1  1      1760  models.common.Conv                      [3, 16, 6, 2, 2]              
+  1                -1  1      4672  models.common.Conv                      [16, 32, 3, 2]                
+  2                -1  1      4800  models.common.C3                        [32, 32, 1]                   
+  3                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]                
+  4                -1  1     29184  models.common.C3                        [64, 64, 2]                   
+  5                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]               
+  6                -1  1    156928  models.common.C3                        [128, 128, 3]                 
+  7                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]              
+  8                -1  1    296448  models.common.C3                        [256, 256, 1]                 
+  9                -1  1    164608  models.common.SPPF                      [256, 256, 5]                 
+ 10                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]              
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]                           
+ 13                -1  1     90880  models.common.C3                        [256, 128, 1, False]          
+ 14                -1  1      8320  models.common.Conv                      [128, 64, 1, 1]               
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]                           
+ 17                -1  1     22912  models.common.C3                        [128, 64, 1, False]           
+ 18                -1  1     36992  models.common.Conv                      [64, 64, 3, 2]                
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]                           
+ 20                -1  1     74496  models.common.C3                        [128, 128, 1, False]          
+ 21                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]              
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]                           
+ 23                -1  1    296448  models.common.C3                        [256, 256, 1, False]          
+ 24      [17, 20, 23]  1     13530  models.yolo.Detect                      [5, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [64, 128, 256], [96, 96]]
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(1, 96, 96, 3)]     0           []                               
+                                                                                                  
+ tf_conv (TFConv)               (1, 48, 48, 16)      1744        ['input_1[0][0]']                
+                                                                                                  
+ tf_conv_1 (TFConv)             (1, 24, 24, 32)      4640        ['tf_conv[0][0]']                
+                                                                                                  
+ tfc3 (TFC3)                    (1, 24, 24, 32)      4704        ['tf_conv_1[0][0]']              
+                                                                                                  
+ tf_conv_7 (TFConv)             (1, 12, 12, 64)      18496       ['tfc3[0][0]']                   
+                                                                                                  
+ tfc3_1 (TFC3)                  (1, 12, 12, 64)      28928       ['tf_conv_7[0][0]']              
+                                                                                                  
+ tf_conv_15 (TFConv)            (1, 6, 6, 128)       73856       ['tfc3_1[0][0]']                 
+                                                                                                  
+ tfc3_2 (TFC3)                  (1, 6, 6, 128)       156288      ['tf_conv_15[0][0]']             
+                                                                                                  
+ tf_conv_25 (TFConv)            (1, 3, 3, 256)       295168      ['tfc3_2[0][0]']                 
+                                                                                                  
+ tfc3_3 (TFC3)                  (1, 3, 3, 256)       295680      ['tf_conv_25[0][0]']             
+                                                                                                  
+ tfsppf (TFSPPF)                (1, 3, 3, 256)       164224      ['tfc3_3[0][0]']                 
+                                                                                                  
+ tf_conv_33 (TFConv)            (1, 3, 3, 128)       32896       ['tfsppf[0][0]']                 
+                                                                                                  
+ tf_upsample (TFUpsample)       (1, 6, 6, 128)       0           ['tf_conv_33[0][0]']             
+                                                                                                  
+ tf_concat (TFConcat)           (1, 6, 6, 256)       0           ['tf_upsample[0][0]',            
+                                                                  'tfc3_2[0][0]']                 
+                                                                                                  
+ tfc3_4 (TFC3)                  (1, 6, 6, 128)       90496       ['tf_concat[0][0]']              
+                                                                                                  
+ tf_conv_39 (TFConv)            (1, 6, 6, 64)        8256        ['tfc3_4[0][0]']                 
+                                                                                                  
+ tf_upsample_1 (TFUpsample)     (1, 12, 12, 64)      0           ['tf_conv_39[0][0]']             
+                                                                                                  
+ tf_concat_1 (TFConcat)         (1, 12, 12, 128)     0           ['tf_upsample_1[0][0]',          
+                                                                  'tfc3_1[0][0]']                 
+                                                                                                  
+ tfc3_5 (TFC3)                  (1, 12, 12, 64)      22720       ['tf_concat_1[0][0]']            
+                                                                                                  
+ tf_conv_45 (TFConv)            (1, 6, 6, 64)        36928       ['tfc3_5[0][0]']                 
+                                                                                                  
+ tf_concat_2 (TFConcat)         (1, 6, 6, 128)       0           ['tf_conv_45[0][0]',             
+                                                                  'tf_conv_39[0][0]']             
+                                                                                                  
+ tfc3_6 (TFC3)                  (1, 6, 6, 128)       74112       ['tf_concat_2[0][0]']            
+                                                                                                  
+ tf_conv_51 (TFConv)            (1, 3, 3, 128)       147584      ['tfc3_6[0][0]']                 
+                                                                                                  
+ tf_concat_3 (TFConcat)         (1, 3, 3, 256)       0           ['tf_conv_51[0][0]',             
+                                                                  'tf_conv_33[0][0]']             
+                                                                                                  
+ tfc3_7 (TFC3)                  (1, 3, 3, 256)       295680      ['tf_concat_3[0][0]']            
+                                                                                                  
+ tf_detect (TFDetect)           ((1, 567, 10),       13530       ['tfc3_5[0][0]',                 
+                                 [(1, 144, 3, 10),                'tfc3_6[0][0]',                 
+                                 (1, 36, 3, 10),                  'tfc3_7[0][0]']                 
+                                 (1, 9, 3, 10)])                                                  
+                                                                                                  
+==================================================================================================
+Total params: 1,765,930
+Trainable params: 0
+Non-trainable params: 1,765,930
+__________________________________________________________________________________________________
+Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+2024-04-03 16:10:33.966276: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+Found untraced functions such as tf_conv_2_layer_call_fn, tf_conv_2_layer_call_and_return_conditional_losses, tf_conv_3_layer_call_fn, tf_conv_3_layer_call_and_return_conditional_losses, tf_conv_4_layer_call_fn while saving (showing 5 of 520). These functions will not be directly callable after loading.
+Assets written to: runs/train/yolov5_results/weights/last_saved_model/assets
+TensorFlow SavedModel: export success ✅ 29.1s, saved as runs/train/yolov5_results/weights/last_saved_model (59.1 MB)
+
+TensorFlow Lite: starting export with tensorflow 2.7.0...
+Found untraced functions such as tf_conv_2_layer_call_fn, tf_conv_2_layer_call_and_return_conditional_losses, tf_conv_3_layer_call_fn, tf_conv_3_layer_call_and_return_conditional_losses, tf_conv_4_layer_call_fn while saving (showing 5 of 520). These functions will not be directly callable after loading.
+Assets written to: /tmp/tmptwv185bc/assets
+2024-04-03 16:11:32.251206: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:363] Ignored output_format.
+2024-04-03 16:11:32.251251: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:366] Ignored drop_control_dependency.
+2024-04-03 16:11:32.252121: I tensorflow/cc/saved_model/reader.cc:43] Reading SavedModel from: /tmp/tmptwv185bc
+2024-04-03 16:11:32.312208: I tensorflow/cc/saved_model/reader.cc:107] Reading meta graph with tags { serve }
+2024-04-03 16:11:32.312261: I tensorflow/cc/saved_model/reader.cc:148] Reading SavedModel debug info (if present) from: /tmp/tmptwv185bc
+2024-04-03 16:11:32.589329: I tensorflow/cc/saved_model/loader.cc:210] Restoring SavedModel bundle.
+2024-04-03 16:11:33.098757: I tensorflow/cc/saved_model/loader.cc:194] Running initialization op on SavedModel bundle at path: /tmp/tmptwv185bc
+2024-04-03 16:11:33.404998: I tensorflow/cc/saved_model/loader.cc:283] SavedModel load for tags { serve }; Status: success: OK. Took 1152881 microseconds.
+2024-04-03 16:11:34.160296: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:237] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-04-03 16:11:34.906354: I tensorflow/compiler/mlir/lite/flatbuffer_export.cc:1962] Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+
+Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+TensorFlow Lite: export success ✅ 41.0s, saved as runs/train/yolov5_results/weights/last-fp16.tflite (3.5 MB)
+
+Export complete (71.1s)
+Results saved to /app/yolov5/runs/train/yolov5_results/weights
+Detect:          python detect.py --weights runs/train/yolov5_results/weights/last-fp16.tflite 
+Validate:        python val.py --weights runs/train/yolov5_results/weights/last-fp16.tflite 
+PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'runs/train/yolov5_results/weights/last-fp16.tflite')
+Visualize:       https://netron.app
+Converting to TensorFlow Lite model (fp16) OK
+
+Converting to TensorFlow Lite model (int8)...
+export: data=/tmp/data/data.yaml, weights=['./runs/train/yolov5_results/weights/last.pt'], imgsz=[96], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=True, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['tflite']
+YOLOv5 🚀 v6.2-110-gc108a9d Python-3.8.10 torch-1.13.1+cu117 CPU
+
+Fusing layers... 
+Model summary: 213 layers, 1765930 parameters, 0 gradients, 4.1 GFLOPs
+
+PyTorch: starting from runs/train/yolov5_results/weights/last.pt with output shape (1, 567, 10) (3.5 MB)
+/usr/local/lib/python3.8/dist-packages/torch/cuda/__init__.py:88: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 34: CUDA driver is a stub library (Triggered internally at ../c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() > 0
+
+TensorFlow SavedModel: starting export with tensorflow 2.7.0...
+
+                 from  n    params  module                                  arguments                     
+2024-04-03 16:12:01.603330: E tensorflow/stream_executor/cuda/cuda_driver.cc:271] failed call to cuInit: UNKNOWN ERROR (34)
+2024-04-03 16:12:01.603380: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (job-project-373968-17799946-6urw8-s6qwm): /proc/driver/nvidia/version does not exist
+2024-04-03 16:12:01.603633: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+  0                -1  1      1760  models.common.Conv                      [3, 16, 6, 2, 2]              
+  1                -1  1      4672  models.common.Conv                      [16, 32, 3, 2]                
+  2                -1  1      4800  models.common.C3                        [32, 32, 1]                   
+  3                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]                
+  4                -1  1     29184  models.common.C3                        [64, 64, 2]                   
+  5                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]               
+  6                -1  1    156928  models.common.C3                        [128, 128, 3]                 
+  7                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]              
+  8                -1  1    296448  models.common.C3                        [256, 256, 1]                 
+  9                -1  1    164608  models.common.SPPF                      [256, 256, 5]                 
+ 10                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]              
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]                           
+ 13                -1  1     90880  models.common.C3                        [256, 128, 1, False]          
+ 14                -1  1      8320  models.common.Conv                      [128, 64, 1, 1]               
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']          
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]                           
+ 17                -1  1     22912  models.common.C3                        [128, 64, 1, False]           
+ 18                -1  1     36992  models.common.Conv                      [64, 64, 3, 2]                
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]                           
+ 20                -1  1     74496  models.common.C3                        [128, 128, 1, False]          
+ 21                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]              
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]                           
+ 23                -1  1    296448  models.common.C3                        [256, 256, 1, False]          
+ 24      [17, 20, 23]  1     13530  models.yolo.Detect                      [5, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [64, 128, 256], [96, 96]]
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(1, 96, 96, 3)]     0           []                               
+                                                                                                  
+ tf_conv (TFConv)               (1, 48, 48, 16)      1744        ['input_1[0][0]']                
+                                                                                                  
+ tf_conv_1 (TFConv)             (1, 24, 24, 32)      4640        ['tf_conv[0][0]']                
+                                                                                                  
+ tfc3 (TFC3)                    (1, 24, 24, 32)      4704        ['tf_conv_1[0][0]']              
+                                                                                                  
+ tf_conv_7 (TFConv)             (1, 12, 12, 64)      18496       ['tfc3[0][0]']                   
+                                                                                                  
+ tfc3_1 (TFC3)                  (1, 12, 12, 64)      28928       ['tf_conv_7[0][0]']              
+                                                                                                  
+ tf_conv_15 (TFConv)            (1, 6, 6, 128)       73856       ['tfc3_1[0][0]']                 
+                                                                                                  
+ tfc3_2 (TFC3)                  (1, 6, 6, 128)       156288      ['tf_conv_15[0][0]']             
+                                                                                                  
+ tf_conv_25 (TFConv)            (1, 3, 3, 256)       295168      ['tfc3_2[0][0]']                 
+                                                                                                  
+ tfc3_3 (TFC3)                  (1, 3, 3, 256)       295680      ['tf_conv_25[0][0]']             
+                                                                                                  
+ tfsppf (TFSPPF)                (1, 3, 3, 256)       164224      ['tfc3_3[0][0]']                 
+                                                                                                  
+ tf_conv_33 (TFConv)            (1, 3, 3, 128)       32896       ['tfsppf[0][0]']                 
+                                                                                                  
+ tf_upsample (TFUpsample)       (1, 6, 6, 128)       0           ['tf_conv_33[0][0]']             
+                                                                                                  
+ tf_concat (TFConcat)           (1, 6, 6, 256)       0           ['tf_upsample[0][0]',            
+                                                                  'tfc3_2[0][0]']                 
+                                                                                                  
+ tfc3_4 (TFC3)                  (1, 6, 6, 128)       90496       ['tf_concat[0][0]']              
+                                                                                                  
+ tf_conv_39 (TFConv)            (1, 6, 6, 64)        8256        ['tfc3_4[0][0]']                 
+                                                                                                  
+ tf_upsample_1 (TFUpsample)     (1, 12, 12, 64)      0           ['tf_conv_39[0][0]']             
+                                                                                                  
+ tf_concat_1 (TFConcat)         (1, 12, 12, 128)     0           ['tf_upsample_1[0][0]',          
+                                                                  'tfc3_1[0][0]']                 
+                                                                                                  
+ tfc3_5 (TFC3)                  (1, 12, 12, 64)      22720       ['tf_concat_1[0][0]']            
+                                                                                                  
+ tf_conv_45 (TFConv)            (1, 6, 6, 64)        36928       ['tfc3_5[0][0]']                 
+                                                                                                  
+ tf_concat_2 (TFConcat)         (1, 6, 6, 128)       0           ['tf_conv_45[0][0]',             
+                                                                  'tf_conv_39[0][0]']             
+                                                                                                  
+ tfc3_6 (TFC3)                  (1, 6, 6, 128)       74112       ['tf_concat_2[0][0]']            
+                                                                                                  
+ tf_conv_51 (TFConv)            (1, 3, 3, 128)       147584      ['tfc3_6[0][0]']                 
+                                                                                                  
+ tf_concat_3 (TFConcat)         (1, 3, 3, 256)       0           ['tf_conv_51[0][0]',             
+                                                                  'tf_conv_33[0][0]']             
+                                                                                                  
+ tfc3_7 (TFC3)                  (1, 3, 3, 256)       295680      ['tf_concat_3[0][0]']            
+                                                                                                  
+ tf_detect (TFDetect)           ((1, 567, 10),       13530       ['tfc3_5[0][0]',                 
+                                 [(1, 144, 3, 10),                'tfc3_6[0][0]',                 
+                                 (1, 36, 3, 10),                  'tfc3_7[0][0]']                 
+                                 (1, 9, 3, 10)])                                                  
+                                                                                                  
+==================================================================================================
+Total params: 1,765,930
+Trainable params: 0
+Non-trainable params: 1,765,930
+__________________________________________________________________________________________________
+2024-04-03 16:12:04.413645: I tensorflow/core/grappler/devices.cc:66] Number of eligible GPUs (core count >= 8, compute capability >= 0.0): 0
+2024-04-03 16:12:04.413834: I tensorflow/core/grappler/clusters/single_machine.cc:358] Starting new session
+2024-04-03 16:12:04.444908: I tensorflow/core/grappler/optimizers/meta_optimizer.cc:1149] Optimization results for grappler item: graph_to_optimize
+  function_optimizer: function_optimizer did nothing. time = 0.019ms.
+  function_optimizer: function_optimizer did nothing. time = 0.001ms.
+
+Assets written to: runs/train/yolov5_results/weights/last_saved_model/assets
+TensorFlow SavedModel: export success ✅ 6.5s, saved as runs/train/yolov5_results/weights/last_saved_model (83.6 MB)
+
+TensorFlow Lite: starting export with tensorflow 2.7.0...
+2024-04-03 16:12:11.214721: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+Found untraced functions such as tf_conv_2_layer_call_fn, tf_conv_2_layer_call_and_return_conditional_losses, tf_conv_3_layer_call_fn, tf_conv_3_layer_call_and_return_conditional_losses, tf_conv_4_layer_call_fn while saving (showing 5 of 520). These functions will not be directly callable after loading.
+Assets written to: /tmp/tmppqwzm0cp/assets
+2024-04-03 16:12:42.326274: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:363] Ignored output_format.
+2024-04-03 16:12:42.326318: W tensorflow/compiler/mlir/lite/python/tf_tfl_flatbuffer_helpers.cc:366] Ignored drop_control_dependency.
+2024-04-03 16:12:42.327229: I tensorflow/cc/saved_model/reader.cc:43] Reading SavedModel from: /tmp/tmppqwzm0cp
+2024-04-03 16:12:42.373842: I tensorflow/cc/saved_model/reader.cc:107] Reading meta graph with tags { serve }
+2024-04-03 16:12:42.373896: I tensorflow/cc/saved_model/reader.cc:148] Reading SavedModel debug info (if present) from: /tmp/tmppqwzm0cp
+2024-04-03 16:12:42.622011: I tensorflow/cc/saved_model/loader.cc:210] Restoring SavedModel bundle.
+2024-04-03 16:12:43.030348: I tensorflow/cc/saved_model/loader.cc:194] Running initialization op on SavedModel bundle at path: /tmp/tmppqwzm0cp
+2024-04-03 16:12:43.286693: I tensorflow/cc/saved_model/loader.cc:283] SavedModel load for tags { serve }; Status: success: OK. Took 959471 microseconds.
+2024-04-03 16:12:43.959461: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:237] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2024-04-03 16:12:44.572746: I tensorflow/compiler/mlir/lite/flatbuffer_export.cc:1962] Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+
+Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+fully_quantize: 0, inference_type: 6, input_inference_type: 3, output_inference_type: 3
+2024-04-03 16:12:47.130337: I tensorflow/compiler/mlir/lite/flatbuffer_export.cc:1962] Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+
+Estimated count of arithmetic ops: 111.328 M  ops, equivalently 55.664 M  MACs
+TensorFlow Lite: export success ✅ 41.5s, saved as runs/train/yolov5_results/weights/last-int8.tflite (1.9 MB)
+
+Export complete (58.6s)
+Results saved to /app/yolov5/runs/train/yolov5_results/weights
+Detect:          python detect.py --weights runs/train/yolov5_results/weights/last-int8.tflite 
+Validate:        python val.py --weights runs/train/yolov5_results/weights/last-int8.tflite 
+PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'runs/train/yolov5_results/weights/last-int8.tflite')
+Visualize:       https://netron.app
+Converting to TensorFlow Lite model (int8) OK
+
+
+Profiling model...
+Scheduling job in cluster...
+Container image pulled!
+Job started
+Loading data for profiling...
+Using batch size: 32
+Loading data for profiling OK
+
+Calculating performance metrics...
+Calculating inferencing time...
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Calculating inferencing time OK
+Calculating float32 accuracy...
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Calculating int8 accuracy...
+
+Model training complete
+
+Job completed (success)
